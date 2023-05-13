@@ -30,6 +30,19 @@
   - dart_testing
   - dart_cli
 - flutter
+  - flutter_project
+  - flutter_cli
+  - user_interface
+  - flutter_framework
+  - routing
+  - app_architecture
+  - persistence
+  - native_communication
+  - error_handling
+  - build
+  - ci
+  - flutter_internals
+  - testing
 - design
 - tools
 - mobile
