@@ -1,14 +1,32 @@
 - development
 - dart
   - language
+    - syntax
+    - null_safety
+    - dart_oop
+    - linter
+    - code_style
+    - logging
   - packaging
     - package_management
     - versioning
     - creating_package
   - async
+    - event_loop
+    - async_await
+    - future_api
+    - stream_api
+    - isolates
   - dart_networking
+    - http
+    - dio
+    - sockets
   - dart_internals
+    - dart_vm
+    - compiling
   - metaprogramming
+    - codegen
+    - custom_linting
   - dart_testing
   - dart_cli
 - flutter
