@@ -1,4 +1,12 @@
 - development
+  - programming
+  - algorithms
+  - data_structures
+  - version_control_systems
+  - databases
+  - network
+  - analytics
+  - common_security
 - dart
   - language
     - syntax
@@ -31,20 +39,94 @@
   - dart_cli
 - flutter
   - flutter_project
+    - folder_structure
+    - pubspec.yaml
+    - assets
   - flutter_cli
   - user_interface
+    - layout
+    - theme
+    - input_focus
+    - scrollable_widget
+    - animation
+    - painting
+    - slivers
   - flutter_framework
+    - trees
+      - widget
+      - element
+      - render_object
+    - constraints
+    - stateless_widget
+    - stateful_widget
+    - inherited_widget
+    - build_context
+    - keys
+    - bindings
+    - box_protocol
+    - sliver_protocol
   - routing
+    - navigator_1
+    - navigator_2
+    - third_party_navigators
   - app_architecture
+    - vanilla_flutter
+    - reactive_ui
+    - bloc
+    - provider
+    - get_it
+    - injectable
+    - riverpod
+    - redux
+    - mobx
   - persistence
+    - sqflite
+    - shared_preferences
+    - secure_storage
+    - firebase_firestore
+    - file_storage
   - native_communication
+    - platform_channels
+    - platform_views
+    - ffi
+    - plugins
+    - flutter_native_modules
   - error_handling
+    - platform_dispatcher
+    - firebase_crashlytics
   - build
+    - fvm
   - ci
+    - github_actions
+    - gitlab_ci
   - flutter_internals
+    - runners
+    - engine
+    - embedders
+    - skia
   - testing
+    - widget_tests
+    - golden_tests
+    - integration_tests
 - design
+  - structure_approaches
+  - design_patterns
+  - principles
+  - clean_architecture
 - tools
+  - dev_tools
+  - ide
+  - network_sniffing
+  - debugger
 - mobile
+  - ios_basics
+  - android_basics
+  - permissions
+  - pushes
+  - deeplinks
+  - web_view
+  - working_in_background
+  - native_build_system
+  - mobile_app_security
 - web
 - desktop
