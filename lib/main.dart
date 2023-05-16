@@ -11,9 +11,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Flutter Skill Matrix',
-      home: HomePage(),
+      theme: ThemeData(
+        useMaterial3: true,
+      ),
+      home: const HomePage(),
     );
   }
 }
