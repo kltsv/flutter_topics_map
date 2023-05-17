@@ -14,7 +14,9 @@ class TopicPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(topic.topic)),
+      appBar: AppBar(
+        title: HeroTopicTitle(topicNode: topic),
+      ),
       body: TopicsListView(topics: topic.subtopics),
     );
   }
