@@ -40,7 +40,7 @@
 - flutter
   - flutter_project
     - folder_structure
-    - pubspec.yaml
+    - pubspec
     - assets
   - flutter_cli
   - user_interface

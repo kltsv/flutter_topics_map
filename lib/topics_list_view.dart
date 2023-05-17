@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 's.dart';
 import 'topic_node.dart';
 import 'topic_page.dart';
 
@@ -70,7 +71,7 @@ class HeroTopicTitle extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: Text(
-          topicNode.topic,
+          S.of(context).get(topicNode.topic),
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
@@ -98,7 +99,7 @@ class TopicChip extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 4.0),
         child: Text(
-          topic.topic,
+          S.of(context).get(topic.topic),
           style: Theme.of(context).textTheme.bodySmall,
         ),
       ),
