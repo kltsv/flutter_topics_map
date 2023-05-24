@@ -47,9 +47,7 @@ class CustomLocalizationsDelegate extends LocalizationsDelegate<S> {
     final content =
         await rootBundle.loadString('l10n/${locale.languageCode}.json');
     final map = jsonDecode(content) as Map<String, dynamic>;
-    return SynchronousFuture<S>(
-      S._(locale, map.map((key, value) => MapEntry(key, value as String))),
-    );
+    return S._(locale, map.map((key, value) => MapEntry(key, value as String)));
   }
 
   @override
