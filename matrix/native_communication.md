@@ -1,0 +1,1 @@
+Взаимодействие с нативным кодом платформы (например, Java/Kotlin для Android и Objective-C/Swift для iOS) из приложений Flutter с использованием платформенных каналов (Platform Channels).

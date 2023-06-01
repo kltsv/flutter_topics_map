@@ -1,0 +1,1 @@
+Разбор концепции виджетов в Flutter, включая StatelessWidget, StatefulWidget, InheritedWidget и создание собственных виджетов.

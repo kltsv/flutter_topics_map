@@ -1,0 +1,1 @@
+Процесс сборки приложений Flutter, включая настройку Gradle для Android и Xcode для iOS.

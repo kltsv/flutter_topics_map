@@ -1,0 +1,1 @@
+Понимание WidgetTree, ElementTree, RenderObjectTree и других, для построения пользовательского интерфейса в Flutter.

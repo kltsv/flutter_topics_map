@@ -1,0 +1,1 @@
+Использование Flutter Version Management (FVM) для управления версиями Flutter и изоляции проектов.

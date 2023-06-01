@@ -1,0 +1,1 @@
+Использование Foreign Function Interface (FFI) в Flutter для взаимодействия с нативными библиотеками.
