@@ -17,7 +17,10 @@ class TopicPage extends StatelessWidget {
       appBar: AppBar(
         title: HeroTopicTitle(topicNode: topic),
       ),
-      body: TopicsListView(topics: topic.subtopics),
+      body: TopicsListView(
+        topicDescription: topic.description,
+        topics: topic.subtopics,
+      ),
     );
   }
 }

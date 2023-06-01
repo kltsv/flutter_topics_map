@@ -1,13 +1,47 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
+
+import 'doc.dart';
 import 'topic_node.dart';
 
 class TopicsParser {
-  static List<TopicNode> parseTopics(String string) {
-    List<String> lines = string.split('\n');
-    return _parseTopicNodes(lines, 0, 0).nodes;
+  static const _basePath = 'matrix';
+
+  static Future<List<TopicNode>> initTopics() async {
+    final manifestContent = await rootBundle.loadString('AssetManifest.json');
+    final Map<String, dynamic> manifestMap = json.decode(manifestContent);
+    final topicsPaths = manifestMap.keys.toList(growable: false);
+
+    final topics = <String, Doc>{};
+    for (final path in topicsPaths) {
+      final content = await rootBundle.loadString(path);
+      final topic = Doc(path, content);
+      topics[topic.path] = topic;
+    }
+
+    final skillsMap = topics.remove('matrix/skills_map.md')!;
+
+    final topLevelTopics = TopicsParser.parseTopics(
+      skillsMap.content,
+      topics,
+    );
+    TopicsParser.printTopicsTree(topLevelTopics);
+    return topLevelTopics;
+  }
+
+  static List<TopicNode> parseTopics(
+      String structure, Map<String, Doc> topics) {
+    List<String> lines = structure.split('\n');
+    return _parseTopicNodes(lines, 0, 0, topics).nodes;
   }
 
   static _ParsedTopicNodes _parseTopicNodes(
-      List<String> lines, int lineIndex, int indentLevel) {
+    List<String> lines,
+    int lineIndex,
+    int indentLevel,
+    Map<String, Doc> topics,
+  ) {
     List<TopicNode> nodes = [];
 
     while (lineIndex < lines.length) {
@@ -17,12 +51,14 @@ class TopicsParser {
       if (currentIndentLevel < indentLevel) {
         break;
       } else if (currentIndentLevel == indentLevel) {
-        nodes.add(TopicNode(line.replaceAll('-', '').trim(), []));
+        final topicKey = line.replaceAll('-', '').trim();
+        nodes.add(TopicNode(
+            topicKey, [], topics['$_basePath/$topicKey.md']!.content));
         lineIndex++;
       } else {
         TopicNode lastNode = nodes.last;
         _ParsedTopicNodes result =
-            _parseTopicNodes(lines, lineIndex, currentIndentLevel);
+            _parseTopicNodes(lines, lineIndex, currentIndentLevel, topics);
         lastNode.subtopics.addAll(result.nodes);
         lineIndex = result.endIndex;
       }

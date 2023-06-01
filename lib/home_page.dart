@@ -21,7 +21,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _initMatrix().then((topics) => setState(() => this.topics = topics));
+    TopicsParser.initTopics()
+        .then((topics) => setState(() => this.topics = topics));
   }
 
   @override
@@ -35,24 +36,5 @@ class _HomePageState extends State<HomePage> {
           ? TopicsListView(topics: list)
           : const Center(child: CircularProgressIndicator()),
     );
-  }
-
-  Future<List<TopicNode>> _initMatrix() async {
-    final manifestContent = await rootBundle.loadString('AssetManifest.json');
-    final Map<String, dynamic> manifestMap = json.decode(manifestContent);
-    final topicsPaths = manifestMap.keys.toList(growable: false);
-
-    final topics = <String, Doc>{};
-    for (final path in topicsPaths) {
-      final content = await rootBundle.loadString(path);
-      final topic = Doc(path, content);
-      topics[topic.path] = topic;
-    }
-
-    final skillsMap = topics.remove('matrix/skills_map.md')!;
-
-    final topLevelTopics = TopicsParser.parseTopics(skillsMap.content);
-    TopicsParser.printTopicsTree(topLevelTopics);
-    return topLevelTopics;
   }
 }
