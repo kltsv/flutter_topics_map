@@ -14,19 +14,19 @@ class S {
     _delegate,
   ];
 
+  static S of(BuildContext context) {
+    return Localizations.of<S>(context, S)!;
+  }
+
   final Locale locale;
   final Map<String, String> translations;
 
   S._(this.locale, this.translations);
 
-  static S of(BuildContext context) {
-    return Localizations.of<S>(context, S)!;
-  }
-
   String get(String key) {
     final string = translations[key];
     if (string == null) {
-      // ignore: avoid_prints
+      // ignore: avoid_print
       print('Translation missing: $key');
     }
     return string ?? 'unknown';
