@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     final list = topics;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Dev Topics'),
+        title: const Text('Flutter Topics'),
       ),
       body: list != null
           ? TopicsListView(topics: list)
