@@ -32,9 +32,11 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Flutter Topics'),
       ),
-      body: list != null
-          ? TopicsListView(topics: list)
-          : const Center(child: CircularProgressIndicator()),
+      body: SafeArea(
+        child: list != null
+            ? TopicsListView(topics: list)
+            : const Center(child: CircularProgressIndicator()),
+      ),
     );
   }
 }
